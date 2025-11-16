@@ -1,0 +1,62 @@
+import datetime
+
+def generate_resume():
+    print("=== Resume Generator ===\n")
+
+    name = input("Enter your full name: ")
+    email = input("Enter your email: ")
+    phone = input("Enter your phone number: ")
+    address = input("Enter your address: ")
+
+    summary = input("\nEnter a short professional summary: ")
+
+    print("\nEnter your skills (separated by commas):")
+    skills = input("Skills: ")
+
+    print("\nEnter your education details:")
+    education = input("Education: ")
+
+    print("\nEnter your work experience:")
+    experience = input("Experience: ")
+
+    resume_text = f"""
+===============================
+          RESUME
+===============================
+
+Name       : {name}
+Email      : {email}
+Phone      : {phone}
+Address    : {address}
+
+-------------------------------
+Professional Summary
+-------------------------------
+{summary}
+
+-------------------------------
+Skills
+-------------------------------
+{skills}
+
+-------------------------------
+Education
+-------------------------------
+{education}
+
+-------------------------------
+Experience
+-------------------------------
+{experience}
+
+Generated on: {datetime.date.today()}
+"""
+
+    filename = f"{name.replace(' ', '_')}_Resume.txt"
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(resume_text)
+
+    print(f"\nResume generated successfully! Saved as: {filename}")
+
+
+generate_resume()
